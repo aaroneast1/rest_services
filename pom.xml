@@ -1,0 +1,62 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.expressivesoftware</groupId>
+	<artifactId>rest-services-parent</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0-SNAPSHOT</version>
+	
+	<modules>
+        	<module>Authentication</module>
+        	<module>Notification</module>
+        	<module>Comments</module>
+        	<module>Registration</module>
+    	</modules>        
+
+
+	<build>
+		<finalName>authentication</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<fork>true</fork>
+					<meminitial>512m</meminitial>
+					<maxmem>1024m</maxmem>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<haltonfailure>true</haltonfailure>
+					<check>
+						<totalBranchRate>18</totalBranchRate>
+						<totalLineRate>35</totalLineRate>
+					</check>
+					<formats>
+						<format>html</format>
+						<format>xml</format>
+					</formats>
+					<outputDirectory>target/cobertura</outputDirectory>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>cobertura</goal>
+						</goals>
+						<phase>verify</phase>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		
+	</build>
+</project>
+
+
